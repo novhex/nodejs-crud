@@ -1,0 +1,49 @@
+
+<%- include tpl/header.ejs %>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<% if(success_messages.length){%>
+					<div class="alert alert-success">
+						<strong>Great!</strong>
+						<p><%= success_messages %>
+					</div>
+				<% } %>
+				<div class="table-responsive">
+					<table class="table table-condensed table-hover table-stripped table-bordered">
+						<thead>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Options</th>
+						</thead>
+						<tbody>
+							<%
+							if(data.length>0){
+
+							for(var i=0; i< data.length; i++){
+							%>
+
+							<tr>
+								<td><%= data[i].user_id %></td>
+								<td><%= data[i].name %></td>
+								<td><%= data[i].email %></td>
+								<td>
+									<a href="/user/edit/<%= data[i].user_id %>" class="btn btn-info btn-sm" >Edit</a>
+									<a data-id="<%= data[i].user_id %>" class="delete-record btn btn-warning btn-sm">Delete</a>
+								</td>
+							</tr>
+
+							<% 	
+									}
+								}
+							%>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<%- include tpl/footer.ejs %>

@@ -1,0 +1,33 @@
+<%- include tpl/header.ejs %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-md-push-4">
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					Login User
+				</div>
+				<div class="panel-body">
+					<% if(error_messages.length){%>
+					<div class="alert alert-danger">
+						<strong>ERROR!</strong>	
+						<p><%= error_messages %></p>
+					</div>
+					
+					<% } %>
+					<form method="POST" accept-charset="utf-8" action="/user/auth/">
+						<label>Username</label>
+						<input type="text" name="username" class="form-control" />
+						<label>Password</label>
+						<input type="password" name="password" class="form-control" />
+						<button type="submit" name="btn-submit" class="btn btn-success btn-sm loginbtn">
+							Login
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%- include tpl/footer.ejs %>
